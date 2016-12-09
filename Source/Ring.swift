@@ -205,14 +205,17 @@ extension Ring{
         }
         return animation
     }
-    
-    
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+}
+
+
+extension Ring : CAAnimationDelegate {
+    func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if let _ = anim.valueForKey(Const.collapseAnimation){
             self.removeFromSuperview()
         }
     }
 }
+
 
 
 
